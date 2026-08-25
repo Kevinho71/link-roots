@@ -25,15 +25,15 @@ export default function LinkTree() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="relative w-full h-[56vh] min-h-[340px] max-h-[560px] overflow-hidden"
+        className="relative w-full max-w-md aspect-[4/5] sm:aspect-[3/4] overflow-hidden"
       >
         <Image
           src={profile.heroImage}
           alt={profile.name}
           fill
           priority
-          sizes="100vw"
-          className="object-cover object-[center_20%] grayscale-[10%]"
+          sizes="(min-width: 448px) 448px, 100vw"
+          className="object-cover object-[center_18%] grayscale-[10%]"
         />
         {/* difuminado del hero hacia el fondo de la página */}
         <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/55 to-background" />
