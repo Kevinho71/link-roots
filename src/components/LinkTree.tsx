@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image";
 import { motion } from "motion/react";
 import LinkRow from "@/components/LinkRow";
 import { profile, sections } from "@/data/links";
@@ -19,25 +20,39 @@ const item = {
 
 export default function LinkTree() {
   return (
-    <main className="flex-1 flex justify-center px-6 py-16">
+    <main className="flex-1 flex flex-col items-center">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="relative w-full h-[56vh] min-h-[340px] max-h-[560px] overflow-hidden"
+      >
+        <Image
+          src={profile.heroImage}
+          alt={profile.name}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[center_20%] grayscale-[10%]"
+        />
+        {/* difuminado del hero hacia el fondo de la página */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/55 to-background" />
+        <div className="absolute inset-0 grid-bg opacity-30 mix-blend-overlay" />
+        <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-1 px-6 pb-6 text-center">
+          <h1 className="font-display text-3xl text-foreground crt-glow chromatic-hover">{profile.name}</h1>
+          <p className="text-xs font-mono uppercase tracking-widest text-accent">{profile.role}</p>
+        </div>
+      </motion.div>
+
       <motion.div
         variants={container}
         initial="hidden"
         animate="show"
-        className="w-full max-w-md flex flex-col gap-10"
+        className="w-full max-w-md flex flex-col gap-10 px-6 pt-8 pb-16"
       >
-        <motion.header variants={item} className="flex flex-col items-center text-center gap-3">
-          <div className="flex h-24 w-24 items-center justify-center border-2 border-accent bg-card brutalist-shadow">
-            <span className="font-display text-3xl text-accent crt-glow">{profile.initials}</span>
-          </div>
-          <div>
-            <h1 className="font-display text-2xl text-foreground chromatic-hover">{profile.name}</h1>
-            <p className="mt-1 text-xs font-mono uppercase tracking-widest text-muted-foreground">
-              {profile.role}
-            </p>
-          </div>
-          <p className="max-w-xs text-sm text-foreground/80">{profile.tagline}</p>
-        </motion.header>
+        <motion.p variants={item} className="text-center text-sm text-foreground/80">
+          {profile.tagline}
+        </motion.p>
 
         {sections.map((section) => (
           <motion.section key={section.title} variants={item} className="flex flex-col gap-3">

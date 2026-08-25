@@ -1,6 +1,6 @@
 import type { LucideIcon } from "lucide-react";
-import { Globe, Download, Mail, CalendarClock } from "lucide-react";
-import { GitHubIcon, LinkedInIcon, InstagramIcon } from "@/components/icons/SocialIcons";
+import { Globe, Download, Mail } from "lucide-react";
+import { GitHubIcon, LinkedInIcon, InstagramIcon, WhatsAppIcon } from "@/components/icons/SocialIcons";
 import type { ComponentType } from "react";
 
 export type IconComponent = LucideIcon | ComponentType<{ size?: number; className?: string }>;
@@ -19,13 +19,12 @@ export interface LinkSection {
 }
 
 export const profile = {
-  initials: "KG",
   name: "Kevin Ady Guzmán",
   role: "Software Developer",
   tagline: "Backend & Frontend · Java Spring Boot / React / Next.js",
+  heroImage: "/DSC01450.jpg",
 };
 
-// TODO: reemplaza los href de ejemplo por tus URLs reales antes de publicar.
 export const sections: LinkSection[] = [
   {
     title: "Portfolio",
@@ -43,15 +42,15 @@ export const sections: LinkSection[] = [
   {
     title: "Contacto",
     links: [
-      { label: "LinkedIn", href: "https://www.linkedin.com/in/TU-USUARIO", icon: LinkedInIcon },
-      { label: "Email", href: "mailto:kevin4000200@gmail.com", icon: Mail },
-      { label: "Agendar llamada", href: "https://cal.com/TU-USUARIO", icon: CalendarClock },
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/kevin-guzmán-marca-730b88301", icon: LinkedInIcon },
+      { label: "WhatsApp", href: "https://wa.me/59160259580", icon: WhatsAppIcon },
+      { label: "Email", href: "mailto:kevin4000100@gmail.com", icon: Mail },
     ],
   },
   {
     title: "Redes",
     links: [
-      { label: "Instagram Tech", href: "https://instagram.com/TU-USUARIO-TECH", icon: InstagramIcon, featured: true },
+      { label: "Instagram", href: "https://www.instagram.com/kevi.nho71/", icon: InstagramIcon, featured: true },
     ],
   },
 ];
