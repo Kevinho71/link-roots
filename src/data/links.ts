@@ -22,7 +22,7 @@ export const profile = {
   name: "Kevin Ady Guzmán",
   role: "Software Developer",
   tagline: "Backend & Frontend · Java Spring Boot / React / Next.js",
-  heroImage: "/DSC01450.jpg",
+  heroImage: "/link-roots/DSC01450.jpg",
 };
 
 export const sections: LinkSection[] = [
