@@ -2,27 +2,27 @@
 
 @layer base {
   :root {
-    /* Paleta terminal fósforo verde / CRT oscuro */
-    --background: 150 22% 5%;
-    --foreground: 100 25% 88%;
-    --card: 150 18% 8%;
-    --card-foreground: 100 25% 88%;
-    --popover: 150 18% 8%;
-    --popover-foreground: 100 25% 88%;
-    --primary: 142 45% 32%;
-    --primary-foreground: 100 30% 95%;
-    --secondary: 150 12% 13%;
-    --secondary-foreground: 100 25% 88%;
-    --muted: 150 12% 13%;
-    --muted-foreground: 100 12% 58%;
-    --accent: 112 75% 52%;
-    --accent-foreground: 150 20% 6%;
-    --destructive: 0 70% 50%;
+    /* Paleta mostaza cálida sobre marrón profundo — tonos medios, ni claros ni negros */
+    --background: 32 20% 10%;
+    --foreground: 42 30% 90%;
+    --card: 32 18% 14%;
+    --card-foreground: 42 30% 90%;
+    --popover: 32 18% 14%;
+    --popover-foreground: 42 30% 90%;
+    --primary: 42 70% 52%;
+    --primary-foreground: 32 30% 12%;
+    --secondary: 32 15% 20%;
+    --secondary-foreground: 42 30% 90%;
+    --muted: 32 12% 22%;
+    --muted-foreground: 40 15% 68%;
+    --accent: 42 80% 58%;
+    --accent-foreground: 32 30% 12%;
+    --destructive: 12 65% 52%;
     --destructive-foreground: 40 25% 92%;
-    --border: 112 18% 22%;
-    --input: 112 18% 22%;
-    --ring: 112 75% 52%;
-    --radius: 0;
+    --border: 35 15% 28%;
+    --input: 35 15% 28%;
+    --ring: 42 80% 58%;
+    --radius: 0.35rem;
   }
 }
 
@@ -46,16 +46,13 @@
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
-  --font-sans: var(--font-mono);
+  --font-sans: var(--font-jetbrains-mono);
   --font-mono: var(--font-jetbrains-mono);
   --font-display: var(--font-special-elite);
-  --radius: 0;
+  --radius: 0.35rem;
 }
 
 @layer base {
-  * {
-    border-color: hsl(var(--border));
-  }
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
@@ -75,7 +72,7 @@
     color: hsl(var(--background));
   }
 
-  /* Grano fotográfico (SVG turbulence), tintado verde — capa global */
+  /* Grano fotográfico (SVG turbulence), tintado mostaza — capa global */
   body::before {
     content: "";
     position: fixed;
@@ -84,7 +81,7 @@
     z-index: 100;
     opacity: 0.10;
     mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.55 0 0 0 0 0.9 0 0 0 0 0.55 0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.85 0 0 0 0 0.65 0 0 0 0 0.25 0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
   }
 
   /* Scanlines CRT — capa global con leve drift animado */
@@ -98,8 +95,8 @@
       to bottom,
       transparent 0,
       transparent 2px,
-      hsla(100, 25%, 88%, 0.045) 2px,
-      hsla(100, 25%, 88%, 0.045) 3px
+      hsla(42, 30%, 90%, 0.045) 2px,
+      hsla(42, 30%, 90%, 0.045) 3px
     );
     opacity: 0.7;
     animation: scanline-drift 8s linear infinite;
@@ -117,21 +114,7 @@
       1.5px 0 hsla(190, 100%, 55%, 0.6);
   }
 
-  /* Borde brutalista con sombra dura desplazada */
-  .brutalist-border {
-    border-width: 2px;
-    border-style: solid;
-    border-color: hsl(var(--border));
-    box-shadow: 4px 4px 0 0 hsl(var(--border));
-    transition: transform 140ms ease-out, box-shadow 140ms ease-out, border-color 140ms ease-out;
-  }
-  .brutalist-border:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 0 hsl(var(--accent));
-    border-color: hsl(var(--accent));
-  }
-
-  /* Sombra dura sin hover (para botones) */
+  /* Sombra dura sin hover (para botones) — estilo brutalist de main */
   .brutalist-shadow {
     box-shadow: 3px 3px 0 0 hsl(var(--border));
     transition: transform 120ms ease-out, box-shadow 120ms ease-out;
@@ -141,18 +124,18 @@
     box-shadow: 4px 4px 0 0 hsl(var(--accent));
   }
 
-  /* Glow tipo tubo CRT (verde fósforo) */
+  /* Glow tipo tubo CRT (mostaza cálido) */
   .crt-glow {
     text-shadow:
-      0 0 8px hsla(112, 75%, 55%, 0.55),
-      0 0 22px hsla(112, 75%, 55%, 0.3);
+      0 0 8px hsla(42, 80%, 60%, 0.55),
+      0 0 22px hsla(42, 80%, 60%, 0.30);
   }
 
   /* Cuadrícula de fondo estilo papel milimetrado / DOS */
   .grid-bg {
     background-image:
-      linear-gradient(hsla(112, 15%, 25%, 0.25) 1px, transparent 1px),
-      linear-gradient(90deg, hsla(112, 15%, 25%, 0.25) 1px, transparent 1px);
+      linear-gradient(hsla(42, 25%, 45%, 0.25) 1px, transparent 1px),
+      linear-gradient(90deg, hsla(42, 25%, 45%, 0.25) 1px, transparent 1px);
     background-size: 40px 40px;
     background-position: -1px -1px;
   }
@@ -165,26 +148,6 @@
   /* Cursor terminal parpadeante */
   .terminal-cursor {
     animation: cursor-blink 1.05s steps(1) infinite;
-  }
-
-  /* Underline animado left→right para nav links */
-  .link-underline {
-    position: relative;
-  }
-  .link-underline::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    width: 100%;
-    height: 2px;
-    background-color: hsl(var(--accent));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 220ms ease-out;
-  }
-  .link-underline:hover::after {
-    transform: scaleX(1);
   }
 }
 

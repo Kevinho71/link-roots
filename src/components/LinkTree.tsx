@@ -10,18 +10,18 @@ const container = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.08, delayChildren: 0.05 },
+    transition: { staggerChildren: 0.06, delayChildren: 0.05 },
   },
 };
 
 const item = {
-  hidden: { opacity: 0, y: 12 },
+  hidden: { opacity: 0, y: 10 },
   show: { opacity: 1, y: 0, transition: { duration: 0.35, ease: "easeOut" as const } },
 };
 
 export default function LinkTree() {
   return (
-    <main className="flex-1 flex flex-col items-center">
+    <main className="relative z-10 flex flex-1 flex-col items-center">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -34,16 +34,15 @@ export default function LinkTree() {
           fill
           priority
           sizes="(min-width: 448px) 448px, 100vw"
-          className="object-cover object-[center_18%] grayscale-[10%]"
+          className="object-cover object-[center_18%]"
         />
-        {/* difuminado del hero hacia el fondo de la página */}
         <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/55 to-background" />
         <div className="absolute inset-0 grid-bg opacity-30 mix-blend-overlay" />
         <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-1 px-6 pb-6 text-center">
           <h1 className="font-display text-3xl text-foreground crt-glow chromatic-hover">{profile.name}</h1>
-          <p className="text-xs font-mono uppercase tracking-widest text-accent">{profile.role}</p>
-          <p className="flex items-center gap-1 text-[11px] font-mono uppercase tracking-widest text-muted-foreground">
-            <MapPin size={11} />
+          <p className="text-sm font-medium text-accent">{profile.role}</p>
+          <p className="flex items-center gap-1 text-xs text-muted-foreground">
+            <MapPin size={12} />
             {profile.location}
           </p>
         </div>
@@ -53,11 +52,16 @@ export default function LinkTree() {
         variants={container}
         initial="hidden"
         animate="show"
-        className="w-full max-w-md flex flex-col gap-10 px-6 pt-8 pb-16"
+        className="flex w-full max-w-md flex-col gap-8 px-6 pt-8 pb-16"
       >
-        <motion.p variants={item} className="text-center text-sm text-foreground/80">
-          {profile.tagline}
-        </motion.p>
+        <motion.div variants={item} className="text-center">
+          <p className="font-mono text-sm uppercase tracking-widest text-accent">
+            {"> "}{profile.greeting}
+          </p>
+          <p className="mt-2 font-mono text-sm leading-relaxed text-foreground/80">
+            {profile.tagline}
+          </p>
+        </motion.div>
 
         {sections.map((section) => (
           <motion.section key={section.title} variants={item} className="flex flex-col gap-3">
@@ -75,7 +79,7 @@ export default function LinkTree() {
 
         <motion.footer variants={item} className="pt-4 text-center">
           <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
-            <span className="terminal-cursor text-accent">_</span> built with next.js
+            <span className="terminal-cursor text-accent">_</span> gracias por pasarte por aquí
           </p>
         </motion.footer>
       </motion.div>
