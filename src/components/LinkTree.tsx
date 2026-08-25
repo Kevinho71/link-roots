@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image";
+import { MapPin } from "lucide-react";
 import { motion } from "motion/react";
 import LinkRow from "@/components/LinkRow";
 import { profile, sections } from "@/data/links";
@@ -41,6 +42,10 @@ export default function LinkTree() {
         <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-1 px-6 pb-6 text-center">
           <h1 className="font-display text-3xl text-foreground crt-glow chromatic-hover">{profile.name}</h1>
           <p className="text-xs font-mono uppercase tracking-widest text-accent">{profile.role}</p>
+          <p className="flex items-center gap-1 text-[11px] font-mono uppercase tracking-widest text-muted-foreground">
+            <MapPin size={11} />
+            {profile.location}
+          </p>
         </div>
       </motion.div>
 

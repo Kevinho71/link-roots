@@ -21,6 +21,7 @@ export interface LinkSection {
 export const profile = {
   name: "Kevin Ady Guzmán",
   role: "Software Developer",
+  location: "Santa Cruz, Bolivia",
   tagline: "Backend & Frontend · Java Spring Boot / React / Next.js",
   heroImage: "/link-roots/DSC01450.jpg",
 };
