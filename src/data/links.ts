@@ -23,10 +23,9 @@ export const profile = {
   name: "Kevin Ady Guzmán",
   role: "Software Developer",
   location: "Santa Cruz, Bolivia",
-  greeting: "¡Hola! Soy Kevin 👋",
+  greeting: "Hola, soy Kevin",
   tagline:
-    "Desarrollo backend y frontend con Java Spring Boot, React y Next.js. Encantado de conocerte — elegí por dónde te resulta más fácil escribirme.",
-  availability: "Disponible para nuevos proyectos",
+    "Desarrollo backend y frontend con Java Spring Boot, React y Next.js. Elegí por dónde te resulta más fácil escribirme.",
   heroImage: "/link-roots/DSC01450.jpg",
 };
 
