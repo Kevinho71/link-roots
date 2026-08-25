@@ -20,7 +20,7 @@ export interface LinkSection {
 }
 
 export const profile = {
-  name: "Kevin Ady Guzmán",
+  name: "Kevin Guzmán Marca",
   role: "Software Developer",
   location: "Santa Cruz, Bolivia",
   greeting: "Hola, soy Kevin",
